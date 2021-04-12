@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<form action="#" method="post" style="border:1px solid #ccc">
+  <div class="container">
+    <h1 style="color:blue">Laundry Room Registration Form</h1>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="uId"><b>User Id</b></label>
+    <input type="text" placeholder="Enter Your User ID" name="userid" required>
+
+    <label for="pass"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pass" required>
+
+    <label for="confirmPass"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="confirmPass" required>
+
+    <label for="slots">Choose your desire time:</label>
+    <select name="slots">
+        <option value="0">Select time</option>
+        <option value="12_3am">12AM - 3AM</option>
+        <option value="3_6am">3AM - 6AM</option>
+        <option value="6_9am">6AM - 9AM</option>
+        <option value="9_12apm">9AM - 12PM</option>
+        <option value="12_3pm">12PM - 3PM</option>
+        <option value="3_6pm">3PM - 6PM</option>
+        <option value="6_9pm">6PM - 9PM</option>
+        <option value="9_12pam">9PM - 12AM</option>
+    </select>
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn" name="signUp">Sign Up</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
