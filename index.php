@@ -20,7 +20,7 @@
 
 <div class="content">
     <div class="header">
-      <h2 style="background-color: #0099cc; padding:10px; font-size: 30px; color: #fff; text-align: center;">Home Page</h2>
+      <h2 style="background-color: #0099cc; padding:10px; font-size: 30px; color: #fff; text-align: center;">Laundry Room schedule</h2>
     </div>
   	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>
