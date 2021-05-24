@@ -13,12 +13,16 @@ $db = mysqli_connect('localhost', 'root', '', 'cis350');
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $user_id = mysqli_real_escape_string($db, $_POST['user_id']);
+  $numeric_user = is_numeric($user_id);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
+  if ($numeric_user != 1) {
+    array_push($errors, "Please enter a numeric value for user id");
+  }
   if (empty($user_id)) { array_push($errors, "User id is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -98,10 +102,12 @@ if (isset($_POST['reg_slots'])) {
   if (mysqli_num_rows($results) != 1) {
     $query1 = "UPDATE users SET slots='$slots', day='$day' WHERE user_id=$user_id";
     mysqli_query($db, $query1);
-    $_SESSION['success'] = "Your timeslot has been booked";
     header('location: index.php');
+
+    $_SESSION['success'] = "Your timeslot has been booked";
   }else {
     array_push($errors, "This day timeslot already booked");
   }
+
 }
 ?>
