@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 12:33 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Host: localhost
+-- Generation Time: May 24, 2021 at 04:48 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,7 +48,7 @@ INSERT INTO `day` (`id`, `days`, `slot1`, `slot2`, `slot3`, `slot4`, `slot5`, `s
 (1, 'Sunday', '', '', '', '', '', '', '', ''),
 (2, 'Monday', '', '', '', '', '', '', '', ''),
 (3, 'Tuesday', '', '', '', '', '', '', '', ''),
-(4, 'Wednesday', '', '', '', '', '', '', '', ''),
+(4, 'Wednesday', '', '', '', 'Booked', '', '', '', ''),
 (5, 'Thursday', '', '', '', '', '', '', '', ''),
 (6, 'Friday', '', '', '', '', '', '', '', ''),
 (7, 'Saturday', '', '', '', '', '', '', '', '');
@@ -64,9 +64,16 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `slots` varchar(255) NOT NULL,
-  `day` varchar(255) NOT NULL
+  `slots` varchar(255) DEFAULT NULL,
+  `day` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `user_id`, `password`, `slots`, `day`) VALUES
+(1, 'tazim@gmail.com', '123456', '827ccb0eea8a706c4c34a16891f84e7b', 'slot4', 'Wednesday');
 
 --
 -- Indexes for dumped tables
@@ -98,7 +105,7 @@ ALTER TABLE `day`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
